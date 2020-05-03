@@ -10,9 +10,9 @@
   <body>
     <div class="wrapper">
       <p class="main-title"><%= title %></p>
+      <% layout('layout') %>
       <form action="/" method="post" class="board-form">
-        タイトル: <input type="text" name="title" class="input" required>
-        <br>
+        タイトル: <input type="text" name="title" class="input" required><br>
         <br>
         <button type="submit" class="submit">ボード作成</button>
       </form>
