@@ -11,6 +11,8 @@ var boards = require('./routes/boards');
 var register = require('./routes/register');
 var login = require('./routes/login');
 
+var setUser = require('./setUser');
+
 var app = express();
 
 // view engine setup
@@ -28,9 +30,10 @@ app.use(session( {
   saveUninitialized: true
 }));
 
+app.user('/', setUser, routes);
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/boards', boards);
+app.use('/users', users);
+app.use('/boards', setUser, boards);
 app.use('/register', register);
 app.use('/login', login);
 
