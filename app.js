@@ -32,7 +32,7 @@ app.use(session( {
 
 app.use('/', setUser, routes);
 app.use('/users', users);
-app.use('/boards', boards);
+app.use('/boards', setUser, boards);
 app.use('/register', register);
 app.use('/login', login);
 
