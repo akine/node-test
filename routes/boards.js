@@ -21,8 +21,9 @@ router.get('/:board_id', function(req, res, next) {
 router.post('/:board_id', function(req, res, next) {
   var message = req.body.message;
   var boardId = req.params.board_id;
+  var userId = req.session.user_id? req.session.user_id: 0;
   var createdAt = moment().format('YYYY-MM-DD HH:mm:ss');
-  var query = 'INSERT INTO messages (message, board_id, created_at) VALUES ("' + message + '", ' + '"' + boardId + '", ' + '"' + createdAt + '")';
+  var query = 'INSERT INTO messages (message, board_id, user_id, created_at) VALUES ("' + message + '", ' + '"' + boardId + '", ' + '"' + userId + '", ' + '"' + createdAt + '")';
   connection.query(query, function(err, rows) {
     res.redirect('/boards/' + boardId);
   });
