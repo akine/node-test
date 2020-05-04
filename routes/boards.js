@@ -7,8 +7,8 @@ var upload = multer({ dest: './public/images/uploads/ '});
 var cloudinary = require('cloudinary');
 cloudinary.config({
   cloud_name: '[dpigfibts]',
-  api_key: 132836835791726,
-  api_secret: YNM-gLzH_s4EO3BhJOCgv1ntsq8
+  api_key: '132836835791726',
+  api_secret: 'YNM-gLzH_s4EO3BhJOCgv1ntsq8'
 });
 
 router.get('/:board_id', function(req, res, next) {
